@@ -7,3 +7,11 @@ final navItems = [
   const UploadRecipe(),
   const FavouriteScren()
 ];
+final categoryItems = [
+  'Breakfast',
+  'Lunch',
+  'Dinner',
+  'Indian',
+  'Chinese',
+  'Italian'
+];
