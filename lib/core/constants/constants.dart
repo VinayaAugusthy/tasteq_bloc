@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:tasteq_bloc/presentation/screens/favourite_screen/fav_scren.dart';
 import 'package:tasteq_bloc/presentation/screens/home/home_screen.dart';
 import 'package:tasteq_bloc/presentation/screens/upload/upload.dart';
@@ -15,3 +16,4 @@ final categoryItems = [
   'Chinese',
   'Italian'
 ];
+const heightBox10 = SizedBox(height: 10);
