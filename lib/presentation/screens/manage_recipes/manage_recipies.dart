@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasteq_bloc/application/recipe/recipe_bloc.dart';
 
-import '../../infrastructure/recipe_db/recipe.dart';
+import '../../../infrastructure/recipe_db/recipe.dart';
 
 class ManageRecipes extends StatelessWidget {
   const ManageRecipes({super.key});

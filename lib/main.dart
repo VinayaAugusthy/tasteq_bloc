@@ -18,6 +18,7 @@ Future<void> main() async {
 
   // await Hive.openBox<User>('users');
   await Hive.openBox<Recipe>('recipes');
+
   // await Hive.openBox<Add>('favourites');
   // await Hive.openBox<Add>('recent');
   // await Hive.openBox<Comments>('comments');
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
           create: (context) => NavbarBloc(),
         ),
         // BlocProvider(
-        //   create: (context) => GridHomeBloc(),
+        //   create: (context) => RecipeBloc(),
         // ),
         // BlocProvider(
         //   create: (context) => TabHomeBloc(),

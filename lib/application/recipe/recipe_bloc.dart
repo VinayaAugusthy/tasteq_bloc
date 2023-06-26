@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+
 import 'package:tasteq_bloc/infrastructure/recipe_db/recipe.dart';
 
 import '../../domain/recipe_model/recipe.dart';

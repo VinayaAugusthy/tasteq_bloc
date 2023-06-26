@@ -106,98 +106,107 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tasteq_bloc/application/recipe/recipe_bloc.dart';
 
 import '../../domain/recipe_model/recipe.dart';
 
 Widget callGrid(List<Recipe> recipes, String category, BuildContext context) {
-  final filteredRecipes =
-      recipes.where((recipe) => recipe.category == category).toList();
+  // final filteredRecipes =
+  //     recipes.where((recipe) => recipe.category == category).toList();
 
-  return SizedBox(
-    height: 200,
-    child: CustomScrollView(
-      slivers: [
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-          sliver: SliverGrid(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                final dataCategory = filteredRecipes[index];
+  return BlocBuilder<RecipeBloc, RecipeState>(
+    builder: (context, state) {
+      final filteredRecipes =
+          recipes.where((recipe) => recipe.category == category).toList();
 
-                return Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Color.fromARGB(255, 185, 185, 255),
-                        offset: Offset(1, 1),
-                        blurRadius: 5,
+      return SizedBox(
+        height: 200,
+        child: CustomScrollView(
+          slivers: [
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+              sliver: SliverGrid(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    final dataCategory = filteredRecipes[index];
+
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color.fromARGB(255, 185, 185, 255),
+                            offset: Offset(1, 1),
+                            blurRadius: 5,
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                    ],
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Column(
-                    key: ValueKey(dataCategory.id),
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                      child: Column(
+                        key: ValueKey(dataCategory.id),
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: IconButton(
-                              onPressed: () {
-                                // Handle favorite button action
-                              },
-                              icon: const Icon(
-                                Icons.favorite_outline_outlined,
-                                color: Colors.red,
-                                size: 40,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: IconButton(
+                                  onPressed: () {
+                                    // Handle favorite button action
+                                  },
+                                  icon: const Icon(
+                                    Icons.favorite_outline_outlined,
+                                    color: Colors.red,
+                                    size: 40,
+                                  ),
+                                ),
                               ),
+                            ],
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              // Handle recipe item tap
+                            },
+                            child: Container(
+                              height: 120,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: FileImage(File(dataCategory.image)),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            dataCategory.name,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
                             ),
                           ),
                         ],
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          // Handle recipe item tap
-                        },
-                        child: Container(
-                          height: 120,
-                          width: 120,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: FileImage(File(dataCategory.image)),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        dataCategory.name,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-              childCount: filteredRecipes.length,
+                    );
+                  },
+                  childCount: filteredRecipes.length,
+                ),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisExtent: 270,
+                  crossAxisSpacing: 15,
+                  mainAxisSpacing: 15,
+                ),
+              ),
             ),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisExtent: 270,
-              crossAxisSpacing: 15,
-              mainAxisSpacing: 15,
-            ),
-          ),
+          ],
         ),
-      ],
-    ),
+      );
+    },
   );
 }

@@ -1,10 +1,12 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tasteq_bloc/application/navbar/bloc/navbar_bloc.dart';
 import 'package:tasteq_bloc/core/constants/constants.dart';
 import 'package:tasteq_bloc/domain/recipe_model/recipe.dart';
-import 'package:tasteq_bloc/presentation/manage_recipes/manage_recipies.dart';
+import 'package:tasteq_bloc/presentation/screens/manage_recipes/manage_recipies.dart';
 import '../../../core/widgets/snackbar.dart';
 import '../../../core/widgets/textfield.dart';
 import '../../../infrastructure/recipe_db/recipe.dart';
@@ -197,9 +199,10 @@ class _UploadRecipeState extends State<UploadRecipe> {
                   _cookController.text.isNotEmpty) {
                 addOnButtonClicked();
                 successUpload();
+                BlocProvider.of<NavbarBloc>(context).add(OnTapped(navIndex: 0));
                 // addToRecent(recipe);
-                Navigator.of(context).pop(
-                    MaterialPageRoute(builder: (ctx) => const ManageRecipes()));
+                // Navigator.of(context).pushReplacement(
+                //     MaterialPageRoute(builder: (ctx) => const ManageRecipes()));
               } else {
                 showSnackBar();
               }

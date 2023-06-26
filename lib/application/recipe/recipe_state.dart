@@ -1,6 +1,5 @@
 part of 'recipe_bloc.dart';
 
-@immutable
 class RecipeState {
   final List<Recipe> listRecipe;
 
