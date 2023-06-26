@@ -5,6 +5,7 @@ import 'package:tasteq_bloc/application/recipe/recipe_bloc.dart';
 import 'package:tasteq_bloc/domain/recipe_model/recipe.dart';
 import 'package:tasteq_bloc/presentation/base_screen.dart';
 import 'application/navbar/bloc/navbar_bloc.dart';
+import 'favourites/favourites_bloc.dart';
 
 // const SAVE_KEY_NAME = 'UserLoggedIn';
 
@@ -18,7 +19,7 @@ Future<void> main() async {
 
   // await Hive.openBox<User>('users');
   await Hive.openBox<Recipe>('recipes');
-
+  await Hive.openBox<Recipe>('favourites');
   // await Hive.openBox<Add>('favourites');
   // await Hive.openBox<Add>('recent');
   // await Hive.openBox<Comments>('comments');
@@ -36,9 +37,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => RecipeBloc(),
         ),
-        // BlocProvider(
-        //   create: (context) => FavouritesBloc(),
-        // ),
+        BlocProvider(
+          create: (context) => FavouritesBloc(),
+        ),
         BlocProvider(
           create: (context) => NavbarBloc(),
         ),

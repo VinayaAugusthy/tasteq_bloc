@@ -110,9 +110,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasteq_bloc/application/recipe/recipe_bloc.dart';
 
 import '../../domain/recipe_model/recipe.dart';
+import '../../favourites/favourites_bloc.dart';
+import '../../infrastructure/favourite_db/favourites.dart';
 import '../../presentation/screens/view_recipies/view_recipes.dart';
 
 Widget callGrid(List<Recipe> recipes, String category, BuildContext context) {
+  // Box<Recipe> favBox = Hive.box<Recipe>('favourites');
   return BlocBuilder<RecipeBloc, RecipeState>(
     builder: (context, state) {
       final filteredRecipes =
@@ -147,15 +150,30 @@ Widget callGrid(List<Recipe> recipes, String category, BuildContext context) {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: IconButton(
-                                  onPressed: () {
-                                    // Handle favorite button action
+                                child: BlocBuilder<FavouritesBloc,
+                                    FavouritesState>(
+                                  builder: (context, state) {
+                                    bool isFavourited =
+                                        favList.contains(dataCategory);
+                                    return IconButton(
+                                      onPressed: () {
+                                        if (isFavourited) {
+                                          delFavourite(
+                                              dataCategory.name, context);
+                                        } else {
+                                          makeFavourite(dataCategory.name,
+                                              dataCategory, context);
+                                        }
+                                      },
+                                      icon: Icon(
+                                        isFavourited
+                                            ? Icons.favorite
+                                            : Icons.favorite_outline_outlined,
+                                        color: Colors.red,
+                                        size: 40,
+                                      ),
+                                    );
                                   },
-                                  icon: const Icon(
-                                    Icons.favorite_outline_outlined,
-                                    color: Colors.red,
-                                    size: 40,
-                                  ),
                                 ),
                               ),
                             ],
