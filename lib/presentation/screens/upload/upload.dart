@@ -4,6 +4,7 @@ import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tasteq_bloc/core/constants/constants.dart';
 import 'package:tasteq_bloc/domain/recipe_model/recipe.dart';
+import 'package:tasteq_bloc/presentation/manage_recipes/manage_recipies.dart';
 import '../../../core/widgets/snackbar.dart';
 import '../../../core/widgets/textfield.dart';
 import '../../../infrastructure/recipe_db/recipe.dart';
@@ -197,8 +198,8 @@ class _UploadRecipeState extends State<UploadRecipe> {
                 addOnButtonClicked();
                 successUpload();
                 // addToRecent(recipe);
-                // Navigator.of(context).pop(MaterialPageRoute(
-                //     builder: (ctx) => const AdminRecipeList()));
+                Navigator.of(context).pop(
+                    MaterialPageRoute(builder: (ctx) => const ManageRecipes()));
               } else {
                 showSnackBar();
               }

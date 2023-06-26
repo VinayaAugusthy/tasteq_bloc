@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sidebarx/sidebarx.dart';
+import 'package:tasteq_bloc/presentation/manage_recipes/manage_recipies.dart';
 import '../application/navbar/bloc/navbar_bloc.dart';
 import '../core/constants/constants.dart';
 
@@ -84,10 +85,10 @@ class BaseScreen extends StatelessWidget {
             icon: Icons.settings_outlined,
             label: '   Manage your recipes',
             onTap: () {
-              // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => const AdminRecipeList()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ManageRecipes()));
             },
           ),
           SidebarXItem(
