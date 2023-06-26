@@ -17,3 +17,4 @@ final categoryItems = [
   'Italian'
 ];
 const heightBox10 = SizedBox(height: 10);
+int index = 0;

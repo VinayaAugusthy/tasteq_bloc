@@ -24,13 +24,14 @@ class RecipeAdapter extends TypeAdapter<Recipe> {
       ingrediants: fields[4] as String,
       procedure: fields[5] as String,
       videoLink: fields[6] as String,
+      id: fields[7] as int?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Recipe obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.image)
       ..writeByte(1)
@@ -44,7 +45,9 @@ class RecipeAdapter extends TypeAdapter<Recipe> {
       ..writeByte(5)
       ..write(obj.procedure)
       ..writeByte(6)
-      ..write(obj.videoLink);
+      ..write(obj.videoLink)
+      ..writeByte(7)
+      ..write(obj.id);
   }
 
   @override

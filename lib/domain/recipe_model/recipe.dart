@@ -17,6 +17,8 @@ class Recipe {
   String procedure;
   @HiveField(6)
   String videoLink;
+  @HiveField(7)
+  int? id;
   Recipe(
       {required this.image,
       required this.name,
@@ -24,5 +26,6 @@ class Recipe {
       required this.category,
       required this.ingrediants,
       required this.procedure,
-      required this.videoLink});
+      required this.videoLink,
+      this.id});
 }
