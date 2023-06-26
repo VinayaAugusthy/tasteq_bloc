@@ -20,6 +20,7 @@ class RecipeBloc extends Bloc<RecipeEvent, RecipeState> {
     on<UpdateRecipeEvent>((event, emit) {
       recipeList.removeAt(event.updateId);
       recipeList.insert(event.updateId, event.recipeModal);
+      return emit(RecipeState(listRecipe: recipeList));
     });
   }
 }

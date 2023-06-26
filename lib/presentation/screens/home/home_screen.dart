@@ -18,12 +18,11 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     print(recipeList.length);
+    getRecipes();
   }
 
   @override
   Widget build(BuildContext context) {
-    getRecipes();
-
     return BlocBuilder<RecipeBloc, RecipeState>(
       builder: (context, state) {
         final tabItems = recipeList.toList();

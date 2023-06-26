@@ -26,3 +26,11 @@ deleteRecipe(int id, BuildContext context) {
   recipeDB.deleteAt(id);
   // getRecipes();
 }
+
+update(int id, Recipe recipe, BuildContext context) {
+  final recipeDB = Hive.box<Recipe>('recipes');
+  BlocProvider.of<RecipeBloc>(context)
+      .add(UpdateRecipeEvent(updateId: id, recipeModal: recipe));
+  recipeDB.putAt(id, recipe);
+  // getRecipes();
+}

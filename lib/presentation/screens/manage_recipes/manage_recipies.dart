@@ -1,10 +1,10 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasteq_bloc/application/recipe/recipe_bloc.dart';
-
+import 'package:tasteq_bloc/presentation/screens/manage_recipes/update_recipe.dart';
 import '../../../infrastructure/recipe_db/recipe.dart';
+import '../view_recipies/view_recipes.dart';
 
 class ManageRecipes extends StatelessWidget {
   const ManageRecipes({super.key});
@@ -35,12 +35,12 @@ class ManageRecipes extends StatelessWidget {
                     children: <Widget>[
                       IconButton(
                           onPressed: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (_) => UpdateRecipe(index: index),
-                            //   ),
-                            // );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => UpdateRecipe(index: index),
+                              ),
+                            );
                           },
                           icon: const Icon(Icons.edit),
                           color: Colors.blue),
@@ -54,15 +54,15 @@ class ManageRecipes extends StatelessWidget {
                     ],
                   ),
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (ctx) => ViewRecipes(
-                    //       passId: index,
-                    //       passValue: data,
-                    //     ),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (ctx) => ViewRecipes(
+                          passId: index,
+                          passValue: data,
+                        ),
+                      ),
+                    );
                   },
                 );
               },

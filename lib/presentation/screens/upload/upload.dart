@@ -37,11 +37,11 @@ class _UploadRecipeState extends State<UploadRecipe> {
     // TODO: implement initState
 
     _ingrediantController.addListener(() {
-      print(_ingrediantController.text);
+      // print(_ingrediantController.text);
       String ingrediant = _ingrediantController.text;
       if (ingrediant.isEmpty &&
           ingrediant.substring(ingrediant.length - 1) == '\u2022') {
-        print('newline');
+        // print('newline');
         setState(() {
           newLine = true;
         });
@@ -199,10 +199,8 @@ class _UploadRecipeState extends State<UploadRecipe> {
                   _cookController.text.isNotEmpty) {
                 addOnButtonClicked();
                 successUpload();
+//To get back to home we want to provide navbarbloc
                 BlocProvider.of<NavbarBloc>(context).add(OnTapped(navIndex: 0));
-                // addToRecent(recipe);
-                // Navigator.of(context).pushReplacement(
-                //     MaterialPageRoute(builder: (ctx) => const ManageRecipes()));
               } else {
                 showSnackBar();
               }

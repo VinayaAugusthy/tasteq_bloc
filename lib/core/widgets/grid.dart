@@ -110,16 +110,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasteq_bloc/application/recipe/recipe_bloc.dart';
 
 import '../../domain/recipe_model/recipe.dart';
+import '../../presentation/screens/view_recipies/view_recipes.dart';
 
 Widget callGrid(List<Recipe> recipes, String category, BuildContext context) {
-  // final filteredRecipes =
-  //     recipes.where((recipe) => recipe.category == category).toList();
-
   return BlocBuilder<RecipeBloc, RecipeState>(
     builder: (context, state) {
       final filteredRecipes =
           recipes.where((recipe) => recipe.category == category).toList();
-
       return SizedBox(
         height: 200,
         child: CustomScrollView(
@@ -130,7 +127,6 @@ Widget callGrid(List<Recipe> recipes, String category, BuildContext context) {
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
                     final dataCategory = filteredRecipes[index];
-
                     return Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -166,7 +162,10 @@ Widget callGrid(List<Recipe> recipes, String category, BuildContext context) {
                           ),
                           GestureDetector(
                             onTap: () {
-                              // Handle recipe item tap
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (ctx) => ViewRecipes(
+                                    passValue: dataCategory, passId: index),
+                              ));
                             },
                             child: Container(
                               height: 120,
