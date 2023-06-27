@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             }
                             login(_emailController.text.trim(),
                                 _passwordController.text.trim(), context);
-                            saveLogin();
+                            // saveLogin();
 
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (ctx) => const HomeScreen()));
@@ -118,8 +118,8 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  saveLogin() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(SAVE_KEY_NAME, true);
-  }
+  // saveLogin() async {
+  //   final prefs = await .getInstance();
+  //   await prefs.setBool(SAVE_KEY_NAME, true);
+  // }
 }

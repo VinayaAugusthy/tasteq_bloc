@@ -8,7 +8,8 @@ import 'package:tasteq_bloc/presentation/base_screen.dart';
 import 'application/favourites/favourites_bloc.dart';
 import 'application/navbar/bloc/navbar_bloc.dart';
 
-// const SAVE_KEY_NAME = 'UserLoggedIn';
+// ignore: constant_identifier_names
+const SAVE_KEY_NAME = 'UserLoggedIn';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
