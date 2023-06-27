@@ -1,9 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:tasteq_bloc/infrastructure/favourite_db/favourites.dart';
 
-import '../domain/recipe_model/recipe.dart';
-import '../infrastructure/favourite_db/favourites.dart';
-
+import '../../domain/recipe_model/recipe.dart';
 part 'favourites_event.dart';
 part 'favourites_state.dart';
 

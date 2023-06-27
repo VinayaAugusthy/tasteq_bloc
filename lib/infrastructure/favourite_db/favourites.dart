@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:tasteq_bloc/domain/recipe_model/recipe.dart';
-
-import '../../favourites/favourites_bloc.dart';
+import '../../application/favourites/favourites_bloc.dart';
 
 List<Recipe> favList = [];
 makeFavourite(String name, Recipe recipe, BuildContext context) {
