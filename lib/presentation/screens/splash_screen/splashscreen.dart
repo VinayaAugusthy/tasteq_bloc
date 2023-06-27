@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tasteq_bloc/main.dart';
-import 'package:tasteq_bloc/presentation/base_screen.dart';
 import 'package:tasteq_bloc/presentation/screens/home/home_screen.dart';
 import '../Authentication/login.dart';
 
