@@ -3,6 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:tasteq_bloc/domain/authentication_model/authentication.dart';
 
 import '../../core/widgets/snackbar.dart';
+import '../../presentation/screens/Authentication/login.dart';
 
 ValueNotifier<List<Authentication>> getUserNotifier = ValueNotifier([]);
 
