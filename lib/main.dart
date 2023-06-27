@@ -4,8 +4,8 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:tasteq_bloc/application/recipe/recipe_bloc.dart';
 import 'package:tasteq_bloc/domain/recipe_model/recipe.dart';
 import 'package:tasteq_bloc/presentation/base_screen.dart';
+import 'application/favourites/favourites_bloc.dart';
 import 'application/navbar/bloc/navbar_bloc.dart';
-import 'favourites/favourites_bloc.dart';
 
 // const SAVE_KEY_NAME = 'UserLoggedIn';
 
@@ -20,11 +20,9 @@ Future<void> main() async {
   // await Hive.openBox<User>('users');
   await Hive.openBox<Recipe>('recipes');
   await Hive.openBox<Recipe>('favourites');
-  // await Hive.openBox<Add>('favourites');
   // await Hive.openBox<Add>('recent');
   // await Hive.openBox<Comments>('comments');
 
-  // debugPaintSizeEnabled=true;
   runApp(const MyApp());
 }
 
@@ -43,15 +41,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => NavbarBloc(),
         ),
-        // BlocProvider(
-        //   create: (context) => RecipeBloc(),
-        // ),
-        // BlocProvider(
-        //   create: (context) => TabHomeBloc(),
-        // ),
-        // BlocProvider(
-        //   create: (context) => RecipeGridBloc(),
-        // )
       ],
       child: MaterialApp(
         title: 'TasteQ',
