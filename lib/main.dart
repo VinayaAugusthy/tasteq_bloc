@@ -4,7 +4,6 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:tasteq_bloc/application/recipe/recipe_bloc.dart';
 import 'package:tasteq_bloc/domain/authentication_model/authentication.dart';
 import 'package:tasteq_bloc/domain/recipe_model/recipe.dart';
-import 'package:tasteq_bloc/presentation/base_screen.dart';
 import 'package:tasteq_bloc/presentation/screens/splash_screen/splashscreen.dart';
 import 'application/favourites/favourites_bloc.dart';
 import 'application/navbar/bloc/navbar_bloc.dart';
@@ -48,7 +47,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'TasteQ',
         theme: ThemeData(primarySwatch: Colors.red),
-        home: SplashScreen(),
+        home: const SplashScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

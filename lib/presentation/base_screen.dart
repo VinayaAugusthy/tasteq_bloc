@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sidebarx/sidebarx.dart';
+import 'package:tasteq_bloc/presentation/screens/about/about_app.dart';
 import 'package:tasteq_bloc/presentation/screens/manage_recipes/manage_recipies.dart';
 import 'package:tasteq_bloc/presentation/screens/terms&conditions/terms.dart';
 import '../application/navbar/bloc/navbar_bloc.dart';
@@ -99,8 +100,8 @@ class BaseScreen extends StatelessWidget {
             icon: Icons.info,
             label: '   About',
             onTap: () {
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => const AboutScreen()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const AboutScreen()));
             },
           ),
           SidebarXItem(
