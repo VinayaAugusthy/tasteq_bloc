@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:tasteq_bloc/application/recent/recent_bloc.dart';
 import 'package:tasteq_bloc/application/recipe/recipe_bloc.dart';
 import 'package:tasteq_bloc/domain/authentication_model/authentication.dart';
 import 'package:tasteq_bloc/domain/recipe_model/recipe.dart';
@@ -22,7 +23,7 @@ Future<void> main() async {
   await Hive.openBox<Authentication>('authentication');
   await Hive.openBox<Recipe>('recipes');
   await Hive.openBox<Recipe>('favourites');
-  // await Hive.openBox<Add>('recent');
+  await Hive.openBox<Recipe>('recent');
   // await Hive.openBox<Comments>('comments');
 
   runApp(const MyApp());
@@ -42,6 +43,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => NavbarBloc(),
+        ),
+        BlocProvider(
+          create: (context) => RecentBloc(),
         ),
       ],
       child: MaterialApp(

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sidebarx/sidebarx.dart';
 import 'package:tasteq_bloc/presentation/screens/about/about_app.dart';
 import 'package:tasteq_bloc/presentation/screens/manage_recipes/manage_recipies.dart';
+import 'package:tasteq_bloc/presentation/screens/recently_viewed/recently_viewed.dart';
 import 'package:tasteq_bloc/presentation/screens/terms&conditions/terms.dart';
 import '../application/navbar/bloc/navbar_bloc.dart';
 import '../core/constants/constants.dart';
@@ -82,8 +83,8 @@ class BaseScreen extends StatelessWidget {
             icon: Icons.timelapse_rounded,
             label: '   Recently Viewed',
             onTap: () {
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => const Recent()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Recent()));
             },
           ),
           SidebarXItem(
