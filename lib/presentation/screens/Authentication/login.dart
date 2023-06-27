@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tasteq_bloc/domain/authentication_model/authentication.dart';
+import 'package:tasteq_bloc/presentation/base_screen.dart';
 import 'package:tasteq_bloc/presentation/screens/Authentication/signup.dart';
-import 'package:tasteq_bloc/presentation/screens/home/home_screen.dart';
 import '../../../core/widgets/snackbar.dart';
 import '../../../core/widgets/textfield.dart';
 import '../../../infrastructure/authentication_function/authentication.dart';
@@ -75,14 +75,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                 _passwordController.text ==
                                     'loginwithpassword') {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => const HomeScreen()));
+                                  builder: (ctx) => BaseScreen()));
                             }
                             login(_emailController.text.trim(),
                                 _passwordController.text.trim(), context);
                             // saveLogin();
 
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (ctx) => const HomeScreen()));
+                                builder: (ctx) => BaseScreen()));
                           } else {
                             callSnackBar(msg: 'Fill all fields', ctx: context);
                           }
