@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tasteq_bloc/domain/authentication_model/authentication.dart';
 import 'package:tasteq_bloc/presentation/screens/Authentication/signup.dart';
 import 'package:tasteq_bloc/presentation/screens/home/home_screen.dart';
 import '../../../core/widgets/snackbar.dart';
 import '../../../core/widgets/textfield.dart';
 import '../../../infrastructure/authentication_function/authentication.dart';
+import '../../../main.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -118,8 +120,8 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // saveLogin() async {
-  //   final prefs = await .getInstance();
-  //   await prefs.setBool(SAVE_KEY_NAME, true);
-  // }
+  saveLogin() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(SAVE_KEY_NAME, true);
+  }
 }
