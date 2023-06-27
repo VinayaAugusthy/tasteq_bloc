@@ -6,7 +6,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:tasteq_bloc/application/navbar/bloc/navbar_bloc.dart';
 import 'package:tasteq_bloc/core/constants/constants.dart';
 import 'package:tasteq_bloc/domain/recipe_model/recipe.dart';
-import 'package:tasteq_bloc/presentation/screens/manage_recipes/manage_recipies.dart';
 import '../../../core/widgets/snackbar.dart';
 import '../../../core/widgets/textfield.dart';
 import '../../../infrastructure/recipe_db/recipe.dart';

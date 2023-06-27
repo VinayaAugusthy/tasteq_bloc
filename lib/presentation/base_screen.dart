@@ -51,7 +51,10 @@ class BaseScreen extends StatelessWidget {
           return SizedBox(
             child: Column(
               children: [
-                Image.asset('assets/images/logo3.png'),
+                const SizedBox(
+                  height: 60,
+                ),
+                Image.asset('assets/images/logo.png'),
                 Padding(
                   padding: EdgeInsets.only(
                       top: MediaQuery.of(context).viewInsets.top),

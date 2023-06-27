@@ -47,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     indicator: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(15)),
                         color: Colors.redAccent),
+                    unselectedLabelColor: Colors.black,
                     tabs: categories
                         .map((items) => Tab(
                               child: Text(items),

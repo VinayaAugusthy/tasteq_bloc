@@ -19,16 +19,24 @@ class FavouriteScren extends StatelessWidget {
       body: SafeArea(
         child: BlocBuilder<FavouritesBloc, FavouritesState>(
           builder: (context, state) {
-            return ListView.separated(
-              itemBuilder: (context, index) {
-                final fav = state.favRecipe[index];
-                return callTile(fav, context, index);
-              },
-              separatorBuilder: (context, index) {
-                return const Divider();
-              },
-              itemCount: state.favRecipe.length,
-            );
+            return state.favRecipe.isNotEmpty
+                ? ListView.separated(
+                    itemBuilder: (context, index) {
+                      final fav = state.favRecipe[index];
+                      return callTile(fav, context, index);
+                    },
+                    separatorBuilder: (context, index) {
+                      return const Divider();
+                    },
+                    itemCount: state.favRecipe.length,
+                  )
+                : const Center(
+                    child: Text(
+                      'No Recipies in Favourites',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                  );
           },
         ),
       ),
