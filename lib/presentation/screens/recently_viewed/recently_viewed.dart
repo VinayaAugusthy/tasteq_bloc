@@ -11,20 +11,20 @@ class Recent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    getRecent();
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Recent Uploads'),
-        centerTitle: true,
-      ),
-      body: SafeArea(
-        child: BlocBuilder<RecentBloc, RecentState>(
-          builder: (context, state) {
-            List<Recipe> recent = state.recentList.toSet().toList();
-            return state.recentList.isNotEmpty
+    // getRecent();
+    List<Recipe> recent = recentsList.toSet().toList();
+    return BlocBuilder<RecentBloc, RecentState>(
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Recently Viewed'),
+            centerTitle: true,
+          ),
+          body: SafeArea(
+            child: recent.isNotEmpty
                 ? ListView.builder(
                     itemBuilder: (context, index) {
-                      final data = state.recentList[index];
+                      final data = recent[index];
                       return ListTile(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
@@ -38,11 +38,13 @@ class Recent extends StatelessWidget {
                         title: Text(
                           data.name,
                           style: const TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       );
                     },
-                    itemCount: state.recentList.length,
+                    itemCount: recent.length,
                   )
                 : const Center(
                     child: Text(
@@ -50,10 +52,10 @@ class Recent extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                  );
-          },
-        ),
-      ),
+                  ),
+          ),
+        );
+      },
     );
   }
 }

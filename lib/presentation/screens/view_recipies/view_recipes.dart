@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:tasteq_bloc/core/constants/constants.dart';
 import 'package:tasteq_bloc/domain/recipe_model/recipe.dart';
+import 'package:tasteq_bloc/infrastructure/recent_db/recent_db.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -15,6 +16,7 @@ class ViewRecipes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    addToRecent(passValue, context);
     return Scaffold(
       body: CustomScrollView(
         slivers: [
