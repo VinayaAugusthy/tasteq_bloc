@@ -8,6 +8,7 @@ import 'package:tasteq_bloc/domain/recipe_model/recipe.dart';
 import 'package:tasteq_bloc/presentation/screens/splash_screen/splashscreen.dart';
 import 'application/favourites/favourites_bloc.dart';
 import 'application/navbar/bloc/navbar_bloc.dart';
+import 'domain/comment_model/comment.dart';
 
 // ignore: constant_identifier_names
 const SAVE_KEY_NAME = 'UserLoggedIn';
@@ -18,12 +19,13 @@ Future<void> main() async {
 
   Hive.registerAdapter(AuthenticationAdapter());
   Hive.registerAdapter(RecipeAdapter());
+  Hive.registerAdapter(CommentsAdapter());
 
   await Hive.openBox<Authentication>('authentication');
   await Hive.openBox<Recipe>('recipes');
   await Hive.openBox<Recipe>('favourites');
   await Hive.openBox<Recipe>('recent');
-  // await Hive.openBox<Comments>('comments');
+  await Hive.openBox<Comments>('comments');
 
   runApp(const MyApp());
 }

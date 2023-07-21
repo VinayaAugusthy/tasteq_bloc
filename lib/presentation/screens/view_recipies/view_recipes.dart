@@ -6,6 +6,8 @@ import 'package:tasteq_bloc/infrastructure/recent_db/recent_db.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
+import '../comments/comments.dart';
+
 // ignore: must_be_immutable
 class ViewRecipes extends StatelessWidget {
   ViewRecipes({Key? key, required this.passValue, required this.passId})
@@ -27,11 +29,13 @@ class ViewRecipes extends StatelessWidget {
                 backgroundColor: Colors.white,
                 child: IconButton(
                   onPressed: () {
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) =>
-                    //             CommentScreen(passValue: passValue)));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            CommentScreen(passValue: passValue),
+                      ),
+                    );
                   },
                   icon: const Icon(
                     Icons.chat_bubble_outline_outlined,
