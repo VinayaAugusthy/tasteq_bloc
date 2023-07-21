@@ -22,7 +22,9 @@ getFavourite() {
 
 delFavourite(String name, BuildContext context) {
   final favouriteDB = Hive.box<Recipe>('favourites');
+
+  favouriteDB.delete(name);
   BlocProvider.of<FavouritesBloc>(context)
       .add(DeleteFavourites(recipeName: name));
-  favouriteDB.delete(name);
+  getFavourite();
 }

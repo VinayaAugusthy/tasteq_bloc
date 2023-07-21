@@ -15,7 +15,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
     });
     on<DeleteFavourites>((event, emit) {
       favList.remove(event.recipeName);
-      return emit(FavouritesState(favRecipe: favList));
+      emit(FavouritesState(favRecipe: favList));
     });
   }
 }
