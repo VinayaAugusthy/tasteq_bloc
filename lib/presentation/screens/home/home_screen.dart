@@ -8,8 +8,7 @@ import 'package:tasteq_bloc/domain/authentication_model/authentication.dart';
 import 'package:tasteq_bloc/infrastructure/recipe_db/recipe.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({this.username, super.key});
-  final String? username;
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
