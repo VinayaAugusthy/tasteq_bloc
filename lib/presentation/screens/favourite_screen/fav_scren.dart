@@ -32,8 +32,10 @@ class FavouriteScren extends StatelessWidget {
                 : const Center(
                     child: Text(
                       'No Recipies in Favourites',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   );
           },

@@ -20,3 +20,4 @@ const heightBox10 = SizedBox(height: 10);
 const heightBox20 = SizedBox(height: 20);
 const heightBox30 = SizedBox(height: 30);
 int index = 0;
+String? usname;

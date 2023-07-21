@@ -25,7 +25,7 @@ class _SignUpState extends State<SignUp> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Hive.openBox('authentication');
+    // Hive.openBox('authentication');
     createBox();
   }
 
@@ -37,56 +37,58 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Center(
-        child: Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 5.0,
-              ),
-            ],
-          ),
-          height: 450,
-          width: 300,
-          // color:  const Color.fromARGB(255, 238, 238, 237),
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Text(
-                    'SIGNUP',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                callTextField(
-                    labelname: 'Username',
-                    inputcontroller: _emailController,
-                    max: 1),
-                callTextField(
-                    labelname: 'Password',
-                    inputcontroller: _passwordController,
-                    max: 1),
-                callTextField(
-                    labelname: 'Confirm Password',
-                    inputcontroller: _confirmpasswordController,
-                    max: 1),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      signUpAction();
-                    },
-                    child: const Text('SIGNUP'),
-                  ),
+        child: Center(
+          child: Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 5.0,
                 ),
               ],
             ),
+            height: 450,
+            width: 300,
+            // color:  const Color.fromARGB(255, 238, 238, 237),
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text(
+                      'SIGNUP',
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  callTextField(
+                      labelname: 'Username',
+                      inputcontroller: _emailController,
+                      max: 1),
+                  callTextField(
+                      labelname: 'Password',
+                      inputcontroller: _passwordController,
+                      max: 1),
+                  callTextField(
+                      labelname: 'Confirm Password',
+                      inputcontroller: _confirmpasswordController,
+                      max: 1),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        signUpAction();
+                      },
+                      child: const Text('SIGNUP'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
-      )),
+      ),
     );
   }
 

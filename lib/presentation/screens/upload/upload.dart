@@ -27,32 +27,32 @@ class _UploadRecipeState extends State<UploadRecipe> {
   final _ingrediantController = TextEditingController();
   final _cookController = TextEditingController();
   final _videoLinkController = TextEditingController();
-  bool newLine = false;
+  // bool newLine = false;
 
   late Box<Recipe> addBox;
 
-  @override
-  void initState() {
-    // TODO: implement initState
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
 
-    _ingrediantController.addListener(() {
-      // print(_ingrediantController.text);
-      String ingrediant = _ingrediantController.text;
-      if (ingrediant.isEmpty &&
-          ingrediant.substring(ingrediant.length - 1) == '\u2022') {
-        // print('newline');
-        setState(() {
-          newLine = true;
-        });
-      } else {
-        setState(() {
-          newLine = false;
-        });
-      }
-    });
-    super.initState();
-    // createBox();
-  }
+  //   _ingrediantController.addListener(() {
+  //     // print(_ingrediantController.text);
+  //     String ingrediant = _ingrediantController.text;
+  //     if (ingrediant.isEmpty &&
+  //         ingrediant.substring(ingrediant.length - 1) == '\u2022') {
+  //       // print('newline');
+  //       setState(() {
+  //         newLine = true;
+  //       });
+  //     } else {
+  //       setState(() {
+  //         newLine = false;
+  //       });
+  //     }
+  //   });
+  //   super.initState();
+  //   // createBox();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -140,44 +140,49 @@ class _UploadRecipeState extends State<UploadRecipe> {
             ),
           ),
           heightBox30,
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: TextFormField(
-              maxLines: 20,
-              autovalidateMode: AutovalidateMode.always,
-              controller: _ingrediantController,
-              onChanged: (value) {
-                Future.delayed(const Duration(milliseconds: 1000), () {
-                  if (newLine) {
-                    return;
-                  }
-                  String ingrediants = _ingrediantController.text;
-                  if (ingrediants.isEmpty) {
-                    _ingrediantController.text =
-                        '${_ingrediantController.text}\u2022';
-                    _ingrediantController.selection =
-                        TextSelection.fromPosition(
-                      TextPosition(offset: _ingrediantController.text.length),
-                    );
-                  }
-                  if (ingrediants.isNotEmpty &&
-                      ingrediants.substring(ingrediants.length - 1) == '\n') {
-                    _ingrediantController.text =
-                        '${_ingrediantController.text}\u2022';
-                    _ingrediantController.selection =
-                        TextSelection.fromPosition(
-                      TextPosition(offset: _ingrediantController.text.length),
-                    );
-                  }
-                });
-              },
-              decoration: InputDecoration(
-                labelText: 'Ingrediants',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ),
+          // Padding(
+          //   padding: const EdgeInsets.all(20.0),
+          //   child: TextFormField(
+          //     maxLines: 20,
+          //     autovalidateMode: AutovalidateMode.always,
+          //     controller: _ingrediantController,
+          //     onChanged: (value) {
+          //       Future.delayed(const Duration(milliseconds: 1000), () {
+          //         if (newLine) {
+          //           return;
+          //         }
+          //         String ingrediants = _ingrediantController.text;
+          //         if (ingrediants.isEmpty) {
+          //           _ingrediantController.text =
+          //               '${_ingrediantController.text}\u2022';
+          //           _ingrediantController.selection =
+          //               TextSelection.fromPosition(
+          //             TextPosition(offset: _ingrediantController.text.length),
+          //           );
+          //         }
+          //         if (ingrediants.isNotEmpty &&
+          //             ingrediants.substring(ingrediants.length - 1) == '\n') {
+          //           _ingrediantController.text =
+          //               '${_ingrediantController.text}\u2022';
+          //           _ingrediantController.selection =
+          //               TextSelection.fromPosition(
+          //             TextPosition(offset: _ingrediantController.text.length),
+          //           );
+          //         }
+          //       });
+          //     },
+          //     decoration: InputDecoration(
+          //       labelText: 'Ingrediants',
+          //       border: OutlineInputBorder(
+          //         borderRadius: BorderRadius.circular(10),
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          callTextField(
+            labelname: 'Ingredients',
+            inputcontroller: _ingrediantController,
+            max: 50,
           ),
           callTextField(
             labelname: 'How to cook',

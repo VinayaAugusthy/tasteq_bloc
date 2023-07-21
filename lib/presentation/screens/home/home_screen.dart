@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:tasteq_bloc/application/recipe/recipe_bloc.dart';
 import 'package:tasteq_bloc/core/constants/constants.dart';
 import 'package:tasteq_bloc/core/widgets/grid.dart';
+import 'package:tasteq_bloc/domain/authentication_model/authentication.dart';
 import 'package:tasteq_bloc/infrastructure/recipe_db/recipe.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({this.username, super.key});
+  final String? username;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -18,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     print(recipeList.length);
+    Hive.openBox<Authentication>('authentication');
     getRecipes();
   }
 

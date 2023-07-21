@@ -79,10 +79,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             }
                             login(_emailController.text.trim(),
                                 _passwordController.text.trim(), context);
+                            Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute(
+                                  builder: (context) => BaseScreen(),
+                                ),
+                                (route) => false);
                             // saveLogin();
-
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (ctx) => BaseScreen()));
                           } else {
                             callSnackBar(msg: 'Fill all fields', ctx: context);
                           }
