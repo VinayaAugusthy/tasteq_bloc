@@ -4,9 +4,9 @@ part of 'favourites_bloc.dart';
 class FavouritesState {
   final List<Recipe> favRecipe;
 
-  FavouritesState({required this.favRecipe});
+  const FavouritesState({required this.favRecipe});
 }
 
 class FavouritesInitial extends FavouritesState {
-  FavouritesInitial({required super.favRecipe});
+  const FavouritesInitial({required super.favRecipe});
 }

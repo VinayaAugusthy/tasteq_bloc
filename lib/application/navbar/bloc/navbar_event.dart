@@ -4,9 +4,9 @@ part of 'navbar_bloc.dart';
 abstract class NavbarEvent {
   final int navIndex;
 
-  NavbarEvent({required this.navIndex});
+  const NavbarEvent({required this.navIndex});
 }
 
 class OnTapped extends NavbarEvent {
-  OnTapped({required super.navIndex});
+  const OnTapped({required super.navIndex});
 }

@@ -44,7 +44,6 @@ class _UpdateRecipeState extends State<UpdateRecipe> {
   late Recipe recipe;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     addBox = Hive.box('recipes');
     _idController = TextEditingController();

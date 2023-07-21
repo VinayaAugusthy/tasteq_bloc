@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tasteq_bloc/main.dart';
@@ -14,14 +16,12 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     checkUserLoggedIn();
     super.initState();
   }
 
   @override
   void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
     super.didChangeDependencies();
   }
 
@@ -37,7 +37,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
   }
 
@@ -57,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
       gotoLogin();
     } else {
       Navigator.of(context).push(MaterialPageRoute(
-        builder: (ctx) => HomeScreen(),
+        builder: (ctx) => const HomeScreen(),
       ));
     }
   }

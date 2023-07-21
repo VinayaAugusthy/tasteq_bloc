@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:tasteq_bloc/domain/authentication_model/authentication.dart';
@@ -25,7 +27,7 @@ void signUp(
 bool login(String email, String password, BuildContext ctx) {
   final userBox = Hive.box<Authentication>('authentication');
 
-  final user = userBox.values.firstWhere(
+  userBox.values.firstWhere(
     (user) => user.email == email && user.password == password,
     orElse: () => showSnackbar(ctx),
   );
@@ -48,9 +50,10 @@ showSnackbar(ctx) {
   callSnackBar(msg: 'username and password does not match', ctx: ctx);
 }
 
-Future<void> getUsers() async {
-  final userBox = await Hive.box<Authentication>('authentication');
+getUsers() async {
+  final userBox = await Hive.openBox<Authentication>('authentication');
   getUserNotifier.value.clear();
   getUserNotifier.value.addAll(userBox.values);
+  // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
   getUserNotifier.notifyListeners();
 }

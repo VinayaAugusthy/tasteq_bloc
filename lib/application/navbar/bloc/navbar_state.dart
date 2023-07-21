@@ -4,9 +4,9 @@ part of 'navbar_bloc.dart';
 class NavbarState {
   final int navIndex;
 
-  NavbarState({required this.navIndex});
+  const NavbarState({required this.navIndex});
 }
 
 class NavbarInitial extends NavbarState {
-  NavbarInitial({required super.navIndex});
+  const NavbarInitial({required super.navIndex});
 }

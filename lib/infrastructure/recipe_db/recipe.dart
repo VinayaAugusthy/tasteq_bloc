@@ -12,11 +12,9 @@ getRecipes() {
 }
 
 upload(Recipe value, BuildContext context) {
-  print('vannu');
   final recipebox = Hive.box<Recipe>('recipes');
   BlocProvider.of<RecipeBloc>(context).add(UploadRecipeEvent(recipe: value));
   recipebox.add(value);
-  print(recipeList.length);
   // getRecipes();
 }
 

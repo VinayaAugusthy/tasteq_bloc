@@ -1,3 +1,5 @@
+// ignore_for_file: list_remove_unrelated_type, depend_on_referenced_packages
+
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:tasteq_bloc/infrastructure/favourite_db/favourites.dart';
